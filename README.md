@@ -1,28 +1,6 @@
 DOKUMENTACJA ZMIAN W PROJEKCIE (COMMITS)
 
-08/01/24
-Dokonanie identyfikacji słów kluczów, które pomogąustalić kryteria wyszukiwania dla webscrappera oraz API serwisów testów muzycznych.
-Za słowa klucze zostały uznane następujące słowa, które zostały zidentyfikowame na podstawie testów piosenek z różnych gatunków i epok muzycznych, a które łączy tematyka miłosna. 
-
-    Love
-    Heart
-    Time
-    You
-    Feel
-    Always
-    Say
-    Never
-    Eyes
-    I'm
-    Way
-    Know
-    Need
-    Baby
-    World
-    Tonight
-    Make
-    Together
-    Forever
-    Day
-    
-Słowa te zostaną użyte jako kryteria scrappera/wyszukiwania w API portali.
+10/01/24
+Ze względu na istnienie gotowej API serwisu z tekstami piosenek Genius.com zdecydowałam się skorzystac z tego własnie rozwiazania w celu zdobycia niezbednych danych - tesktow piosenek o milosci. W tym celu napisze skrypt łączacy się z tymże API, w celu ich pobrania (jest to forma web scrappera wspominanego w wiki projektu).Napotkałam przy tym istotną przeszkode, jaka jest brak możliwość wyszukiwania testów piosenek po tematyce, gatunku czy słowach "kluczach" w tekstach. Możliwe jest jedynie wykorzystanie nazwy artysty, roku produkcji.W związku z tym postanowiłam przejrzeć tematyczne playlisty w aplikacji streamingowej Spotify, dzięki którym odnajdę tytuły i artystow piosenek o miłości z interesujących mnie dekad - 1950s do 2020s, z roznych gatunkow i podgatunkow, w celu zapewnienia sobie roznorodnej puli badawczej (playlists.txt).
+Po zidentyfikowaniu interesujacych mnie playlists (jest ich 46), napisze skrypt pobierajacy liste piosenek wraz z wykonawcami w formie testowej. Nastepnie usune duplikaty. Plik ze skryptem dla przykladowej playlisty nazywac sie bedzie Spotify_Scrapper.py. 
+Z tak gotową listą bede mogla przystpic do pobierania testow piosenek z potalu Genius.com.
