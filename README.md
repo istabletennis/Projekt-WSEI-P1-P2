@@ -11,3 +11,13 @@ Z tak gotową listą będę mogła przystąpić do pobierania tekstów piosenek 
 Po napisaniu skryptu w celu ściągnięcia listy piosenek z wyselekcjonowanych playlist na Spotify, konieczne jest napisanie skryptu do wyszukania tychże utworów poprzez genius API (apka portalu z tekstami piosenek). Wyszukiwać piosenek będę po ich tytule i artyście, a następnie będę sprawdzać i przypisywać indywidualne ID piosenki z portalu Genius do niej samej. W ten sposób moim kolejnym krokiem może być użycie skryptu szukającego po genius ID utworu i ściągającego jego tekst.
 Skrypt można znaleźć pod nazwą **Genius_Scrapper.py**.
 Teksty wszystkich piosenek zostaną zapisane w pliku JSON, a następnie załadowane do bazy danych.
+
+*25/01/24*\
+Zmiany w skrypcie **Spotify_Scrapper.py**:
+* Wzbogaconie o metode wyszukiwania najwcześniejszej daty powstania (przy eliminacji 'remastered', 'version X, 'feat', etc.); 
+* Wszystkie metody zostały przekształcone w celu generowania wyniku w postaci JSON
+
+Zmiany w skrypcie **Genius_Scrapper.py**:
+* Powstała dodatkowa walidacja wyników wyszukiwania
+ 
+Powstał plik **main.py** który korzysta z metod zamieszczonych w obu powyższych scrapperach.

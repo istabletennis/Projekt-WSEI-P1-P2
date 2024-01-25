@@ -1,12 +1,6 @@
-from dotenv import load_dotenv
-import os
 import requests
+from requests.exceptions import ConnectionError
 import re
-
-load_dotenv()
-spotify_client_id = os.getenv("SPOTIFY_CLIENT_ID")
-spotify_client_secret = os.getenv("SPOTIFY_SECRET")
-spotify_playlist_id= "37i9dQZF1DWUGhrXBsyMVJ"
 
 
 def spotify_get_token(client_id, client_secret):
@@ -27,25 +21,31 @@ def spotify_get_token(client_id, client_secret):
         return None
 
 
-def spotify_get_playlist_tracks(spotify_token, spotify_playlist_id, offset=0, limit=100):
-    track_list = []
+def _strip_title(title):
+    title = title.split(' - ')[0]
+    title = re.sub(r'\([^)]*\)', '', title)
+    return title
+
+
+def spotify_get_playlist(spotify_token, spotify_playlist_id, offset=0, limit=100):
+    track_list = {'tracks': []}
     headers = {
         'Authorization': f'Bearer {spotify_token}',
     }
     url = f"https://api.spotify.com/v1/playlists/{spotify_playlist_id}/tracks?offset={offset}&limit={limit}"
     response = requests.get(url, headers=headers)
-    x = response.json()
     try:
         for track in response.json()["items"]:
-            track_name = track['track']['name']
-            artists = ', '.join([x['name'] for x in track['track']['artists']])
-            track_list.append(f'{track_name} - {artists}')
+            track_info = {
+                "name": _strip_title(track['track']['name']),
+                "artist": track['track']['artists'][0]['name'],
+                "spotify_release": track['track']['album']['release_date'].split('-')[0]
+            }
+            track_list['tracks'].append(track_info)
 
         if response.json()["next"]:
-            match = re.search(r'offset=(\d+)&limit=(\d+)', response.json()["next"])
-            offset = match.group(1)
-            limit = match.group(2)
-            track_list = track_list + spotify_get_playlist_tracks(spotify_token, spotify_playlist_id, offset=offset, limit=limit)
+            offset, limit = re.search(r'offset=(\d+)&limit=(\d+)', response.json()["next"]).groups()
+            track_list['tracks'] = track_list['tracks'] + spotify_get_playlist(spotify_token, spotify_playlist_id, offset=offset, limit=limit)['tracks']
 
         return track_list
 
@@ -54,7 +54,36 @@ def spotify_get_playlist_tracks(spotify_token, spotify_playlist_id, offset=0, li
         return []
 
 
-if __name__ == "__main__":
-    spotify_token = spotify_get_token(spotify_client_id, spotify_client_secret)
-    for song in spotify_get_playlist_tracks(spotify_token, spotify_playlist_id):
-        print(song)
+def _spotify_search(spotify_token, search_phrase, type):
+    headers = {
+        'Authorization': f'Bearer {spotify_token}',
+    }
+    params = {
+        'q': search_phrase,
+        'type': type
+    }
+    url = f"https://api.spotify.com/v1/search"
+    response = requests.get(url, headers=headers, params=params)
+    return response
+
+
+def get_earliest_release_date_of_song(spotify_token, song_info: dict):
+    search_phrase = f"{song_info['name']} - {song_info['artist']}"
+    response = _spotify_search(spotify_token, search_phrase, 'track').json()
+    release_years = []
+    for track in response['tracks']['items']:
+        result_artist = track["artists"][0]["name"]
+        result_title = track["name"]
+        if song_info['artist'].lower() in result_artist.lower() and song_info['name'].lower() in result_title.lower():
+            release_year = track["album"]["release_date"].split('-')[0]
+            release_years.append(int(release_year))
+    oldest_release = min(release_years, default=float('inf'))
+    return str(min(oldest_release, int(song_info['spotify_release'])))
+
+
+
+
+
+
+
+
