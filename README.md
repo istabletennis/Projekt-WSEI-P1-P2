@@ -21,3 +21,7 @@ Zmiany w skrypcie **Genius_Scrapper.py**:
 * Powstała dodatkowa walidacja wyników wyszukiwania
  
 Powstał plik **main.py** który korzysta z metod zamieszczonych w obu powyższych scrapperach.
+
+*26/01/24*\
+
+Skrypt *main.py*: głowna czesc skryptu została zamknięta w pętli w której w każdej iteracji pozyskiwane są dane z kolejnych playlist których ID zawarte są w zdefiniowanej liście. Pobierane są informacje o artyście, tutule, roku wydania (wg portalu Genius i Spotify) i tekście.
