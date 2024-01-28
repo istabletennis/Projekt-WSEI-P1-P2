@@ -25,3 +25,7 @@ Powstał plik **main.py** który korzysta z metod zamieszczonych w obu powyższy
 *26/01/24*\
 
 Skrypt *main.py*: głowna czesc skryptu została zamknięta w pętli w której w każdej iteracji pozyskiwane są dane z kolejnych playlist których ID zawarte są w zdefiniowanej liście. Pobierane są informacje o artyście, tutule, roku wydania (wg portalu Genius i Spotify) i tekście.
+
+*28/01/24*\
+
+Przeprowadzono normalizacje danych we wsystkich wygenerowanych plikach JSON. Z sukcesem zostały zupadatowane 29 plikow  JSON, ktore nastepnie zostaly zaladowane do lokalnie hostowanej bazy danych MongoDB. Przed usunieciem duplikatow nasza baza posiada łącznie 2920 arrays(tekstow piosenek).

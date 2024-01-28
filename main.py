@@ -1,5 +1,5 @@
 import Genius_Scrapper as genius
-from Spotify import *
+from Spotify_Scrapper import *
 from dotenv import load_dotenv
 import os
 import json
@@ -29,32 +29,31 @@ playlist_ids = [
     # "5hi1dLxyaOgxNbS9xvRSPu", done
     # "2hGBRYAON8N8e9sHQrGpwi", done
     # "5T85yZiWjhmOj2QmyzT8Qy", timeout
-    "37i9dQZF1DWXqpDKK4ed9O",
-    "5Kar9ubIBpXecVyV9kEz1d",
-    "16PHbxRcSspmRSlYIgArdR",
-    "37fSBUXHEieXa1KU2NmVuf",
-    "37i9dQZF1DXd0DyosUBZQ7",
-    "37i9dQZF1DXd0DyosUBZQ7",
-    "55526srud2X6DyvnELI1g0",
-    "2YnpVaTqjNk0qxzEPu36W0",
-    "0VaitZrpLDbFuaMqURX6hG",
-    "2tRXrKvNkV5t9wdZqoOgCW",
-    "37i9dQZF1DWVTfbQdQ8l7H",
-    "37i9dQZF1EIdsS2tNc85Lj",
-    "6BlEK8z04aI8aZnpIpqMhG",
-    "37i9dQZF1EIdsS2tNc85Lj",
-    "1zTuR5uEZ8MG3LX74IZPOD",
-    "6oNsYDhN95gkENsdFcAwTh",
-    "4qfKXdLwk7ruT8uM6sdVXq",
-    "37i9dQZF1DX7Z7kYpKKGTc",
-    "37i9dQZF1DX50QitC6Oqtn",
-    "4HN214laokstO6XtPSSUhc",
-    "27Vexc5zoyUbu0JXmJqoZb",
-    "2dIxoKGXCZK0VSKrdpmGEL",
-    "4EWeAEldtmPTzCZ3aVfHlm",
-    "4UBSNKDnfsc4hkbsGwZg13",
-    "37i9dQZF1EIf5L4STgdymG",
-    "37i9dQZF1DX7rOY2tZUw1k"
+    # "37i9dQZF1DWXqpDKK4ed9O", timeout
+    # "5Kar9ubIBpXecVyV9kEz1d", timeout
+    # "37fSBUXHEieXa1KU2NmVuf",timeout
+    # "37i9dQZF1DXd0DyosUBZQ7", done
+    # "37i9dQZF1DXd0DyosUBZQ7", done
+    # "55526srud2X6DyvnELI1g0", done
+    # "2YnpVaTqjNk0qxzEPu36W0", done
+    # "0VaitZrpLDbFuaMqURX6hG", done
+    # "2tRXrKvNkV5t9wdZqoOgCW", done
+    # "37i9dQZF1DWVTfbQdQ8l7H", done
+    # "37i9dQZF1EIdsS2tNc85Lj", timeout
+    #"6BlEK8z04aI8aZnpIpqMhG", issues
+    # "37i9dQZF1EIdsS2tNc85Lj", done
+    # "1zTuR5uEZ8MG3LX74IZPOD", done
+    # "6oNsYDhN95gkENsdFcAwTh", done
+    # "4qfKXdLwk7ruT8uM6sdVXq", done
+    # "37i9dQZF1DX7Z7kYpKKGTc", done
+    # "37i9dQZF1DX50QitC6Oqtn", done
+    # "4HN214laokstO6XtPSSUhc", done
+    # "27Vexc5zoyUbu0JXmJqoZb", done
+    # "2dIxoKGXCZK0VSKrdpmGEL", done
+    #"4EWeAEldtmPTzCZ3aVfHlm", done
+    # "4UBSNKDnfsc4hkbsGwZg13", done
+    # "37i9dQZF1EIf5L4STgdymG", done
+    # "37i9dQZF1DX7rOY2tZUw1k", done
 ]
 
 for id in playlist_ids:
