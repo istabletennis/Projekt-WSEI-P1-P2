@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login or Register</h1>
+    <form action="/login" method="post">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br><br>
+        <button type="submit">Login</button>
+    </form>
+    <br>
+    <h2>OR</h2>
+    <form action="/register" method="post">
+        <label for="new_username">New Username:</label><br>
+        <input type="text" id="new_username" name="username"><br>
+        <label for="new_password">New Password:</label><br>
+        <input type="password" id="new_password" name="password"><br><br>
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
