@@ -31,14 +31,14 @@ Przeprowadzono normalizacje danych we wsystkich wygenerowanych plikach JSON. Z s
 *01/02/24*\
 Pliki JSON z danymi utworów zunifikowano w jeden plik. Przesiano wyniki w celu usunięcia duplikatów, usunięto je a następnie załadowano ponownie do lokalnej bazy danych 2, kolekcji P2. W kolekcji znajduje sie obecnie 2159 unikatowych tekstów piosenek. Poniżej prezentowane sa statystyki ilości uzyskanych tekstów z uwzględnieniem dekaty, w której powstały.
 
-50s:1949-1960: 174
-60s: 1959-1970: 284
-70s: 1969-1980: 393
-80s: 1979-1990: 342
-90s: 1989-2000: 179
-00s: 1999-2011: 374
-10s: 2009-2020: 613
-20s: 2019-2030: 261
+* 50s:1949-1960: 174
+* 60s: 1959-1970: 284
+* 70s: 1969-1980: 393
+* 80s: 1979-1990: 342
+* 90s: 1989-2000: 179
+* 00s: 1999-2011: 374
+* 10s: 2009-2020: 613
+* 20s: 2019-2030: 261
 
 *05/02/24*\
 Stworzono szkielet testowej aplikacji we frameworku fast api. Posiada nastepujące funkcje: logowanie, rejestracja, wylogowywanie użytkownika, komunikacja z bazą danych (nowa kolekcja: users) oraz prototyp strony oczekiwania na zakończenie działania skryptu docelowego. Aplikacja została umieszczona w folderze **API** wraz z prowizorycznych front-endem.
