@@ -3,11 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Result Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .box {
+            width: calc(100% / 3);
+            text-align: center;
+            border: 1px solid #ccc;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .image-container {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .image-container img {
+            width: 50%;
+            max-width: 50%;
+        }
+    </style>
 </head>
 <body>
-    <h1>Done!</h1>
-    <p>You have waited 10 seconds</p>
+    <h3>Result</h3>
+    <div>
+        <p>{{ result }}</p>
+    </div>
+    <div class="container">
+        <div class="box">
+            <p>Word count average:</p>
+            {{ word_count_average }}
+        </div>
+        <div class="box">
+            <p>Average subjectivity (within the range 0.0 (objective) to 1.0 (subjective):</p>
+            {{ average_subjectivity }}
+        </div>
+        <div class="box">
+            <p>Average polarity (within the range -1.0 to 1.0):</p>
+            {{ average_polarity }}
+        </div>
+    </div>
+    <div class="image-container">
+        <img src="{{ word_count_image }}" alt="Word Count Chart">
+    </div>
     <form action="/dashboard" method="get">
         <button type="submit">Return to dashboard</button>
     </form>

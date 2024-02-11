@@ -4,15 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+        }
+        form {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome, {{ username }}</h1>
-    <p>This is your dashboard.</p>
+    <h1>♫⋆｡♪ ₊˚♬ ﾟ B e a t I n q u i r y ♫⋆｡♪ ₊˚♬ ﾟ</h1>
+    <h3>Welcome to BeatInquiry, {{ username }}!</h3>
+    <p>Have you ever wondered if a song's lyrics can serve as a telltale sign of the decade they were written in, much like the sound of the music itself?
+    <br>Or perhaps you've noticed the recurring themes in top radio love songs and wondered if there's more to it than just coincidence?
+    <br>So did we!
+    <br>Our goal was to determine whether we could accurately estimate the decade of production of these heart-wrenching
+    <br>love songs based solely on the lyrics — the phrases, words, and sentiments we can see and hear.
+    <br>
+    <br>After all, love comes in different shapes, sizes, and sets of nouns.
+    <br>And without further ado, let's delve into our findings...</p>
+
+    <form action="/start-task" method="post">
+        <label for="start_year">Start Year:</label>
+        <input id="start_year" name="start_year" required><br><br>
+        <label for="end_year">End Year:</label>
+        <input id="end_year" name="end_year" required><br><br>
+        <button type="submit">Submit</button>
+    </form>
     <form action="/logout" method="post">
         <button type="submit">Logout</button>
-    </form>
-    <form action="/start-task" method="post">
-        <button type="submit">Start Task</button>
     </form>
 </body>
 </html>

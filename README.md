@@ -42,3 +42,16 @@ Pliki JSON z danymi utworów zunifikowano w jeden plik. Przesiano wyniki w celu 
 
 *05/02/24*\
 Stworzono szkielet testowej aplikacji we frameworku fast api. Posiada nastepujące funkcje: logowanie, rejestracja, wylogowywanie użytkownika, komunikacja z bazą danych (nowa kolekcja: users) oraz prototyp strony oczekiwania na zakończenie działania skryptu docelowego. Aplikacja została umieszczona w folderze **API** wraz z prowizorycznych front-endem.
+
+*11/02/24*\
+Dodałam nowy plik python **songs_utility.py**, który zawiera podstawowe metody opowiedzialne za wysyłanie zapytań do bazu danych MongoDB (get data).
+Dodałam także nowy plik **word_analysis.py**, który stanowi kolekcje metod odpowiedzialnych za analize tesktów piosenek (bibliotek: textblob). Przeprowadzona została analiza pod kątem ilości słów, ich częstotliwości występowania (z wyłączeniem słów niewnoszących nic do analizy, np. przyimków) oraz analiza sentymentu tekstu. W pliku znajduje się metoda służąca do stworzenia wykresu słupkowego na podstawie danych - tekstów piosenek. 
+Zadanie wykonywane w tle w pliku **main.py** (folder API) został zamieniony na zadanie które wykonuje następujące czynności:
+* pobranie piosenek z żądanego okesu
+* obliczenie ich ilości
+* obliczenie ilości słów w pioskach z żądanego okresu
+* określenie sentymentu
+* stworzenie odpowiednich pól naalizy, w tym wykresu
+Przerobione zostały formularze HTML by wyświetlać zawartości w bradziej przystępny sposób.
+Dodano plik **requirements.txt**.
+Tym sposobem aplikacja została oddana do użytku i oceny. Spełnia ona wymagania okeślone w początkowej fazie tworzenia projektu (patrz: WIKI).

@@ -1,0 +1,8 @@
+textblob
+matplotlib
+statistics
+pymongo
+python-multipart
+bcrypt
+fastapi
+passlib
